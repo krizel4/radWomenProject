@@ -37,7 +37,7 @@ Put the code in a handler class.  The trigger will need to call the methods in t
 1. Before a Stock Item can be created, check that there is not already a stock item record with a matching name.
 If there is already a Stock Item with that name, change the name so that it is the name entered, plus the words “Duplicate Item”.  We have a process in place to check for these elsewhere.
 
-*Alternative (Bonus): Instead of renaming, add a Trigger Exception error as described [here] (https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_exceptions.htm)*
+*Alternative (Bonus): Instead of renaming, add a Trigger Exception error as described [here](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_exceptions.htm)*
 
 2. Before a Stock Item is deleted, make sure that the stock on hand is at 0.  If it is not, Create a case so that someone is alerted. The case should indicate the name of the item that was deleted, the id, and the number of stock that were on hand when it was deleted in the description.  The rest of the case can be configured however you think best. You can check out your Week 6 Bulkification homework on the AccountTrigger for an example of a similar pattern.
 
