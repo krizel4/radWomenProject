@@ -3,8 +3,8 @@
 ## Description
 Our Professional Pantry cookware supply store needs to keep better track of our inventory (Stock).  We want a system that can track the items we stock, how many are available, and the current price.  We do not want to use Products to implement this functionality.
 
-### Requirements
-#### User Interface
+## Requirements
+### User Interface
 We have a custom User Interface being built by another team.  For this project, we are only responsible for the back-end code.  We can use the standard Salesforce User Interface to check our trigger utility functionality as we build.  In other words, no UI requirements!
 
 ### Data Setup
