@@ -110,4 +110,19 @@ public with sharing class StockItem {
             return false;
         }
     }
+
+    // Checks for duplicates
+    Public class checkForDups {
+        Public static void createRecord
+        // variable for new item to reference later
+
+        (List<Item_Name__c> listStockNames) {
+        // loop through new stock items committed
+        For (Item_Name__c : listItemNames) {
+            if( == )
+        }
+
+        }
+    }
+
 }
