@@ -114,11 +114,13 @@ public with sharing class StockItem {
     // Checks for duplicates
     Public class checkForDups {
         Public static void createRecord
-        // variable for new item to reference later
+        // do I need to create variable for new item to reference later?
+
+        // Query for existing stock items first? What if it's a giant db?
 
         (List<Item_Name__c> listStockNames) {
         // loop through new stock items committed
-        For (Item_Name__c : listItemNames) {
+        For (Item_Name__c newItem : listStockNames) {
             if( == )
         }
 
