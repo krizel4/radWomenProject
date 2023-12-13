@@ -1,0 +1,17 @@
+// Checks for duplicates
+ Public class CheckForDups {
+        Public static void createStockItem(List<Stock_Item__c> listStockItems) {
+
+        // empty stock item array
+        List<Stock_Item__c> newStock = new List<Stock_Item__c>();
+
+// Loop through stock items just created
+    For (Stock_Item_C stockItem : listStockItems)
+        if(stockItem.Item_Name__c == Item_Stock__c) {
+            system.debug(stockItem + 'stock item has a dup');
+        }
+
+        // Query for existing stock items first? What if it's a giant db?
+        // List<Item_Name__c> existingItemNames = [SELECT Id, Item_Name__c FROM StockItem__c WHERE Item_Name__c IN : existingStock]
+    }
+ }

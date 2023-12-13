@@ -110,26 +110,4 @@ public with sharing class StockItem {
             return false;
         }
     }
-
-
 }
-// Checks for duplicates
- public class checkForDups {
-        public static void createRecord {
-        // do I need to create variable for new item to reference later?
-        Set<String> existingStock = new Set<String>
-
-        // Query for existing stock items first? What if it's a giant db?
-        List<Item_Name__c> existingItemNames = [SELECT Id, Item_Name__c FROM StockItem__c WHERE Item_Name__c IN : existingStock]
-
-        (List<Item_Name__c> listStockNames) {
-        // loop through new stock items committed
-        For (Item_Name__c newItem : listStockNames) {
-            // boolean to check if new item matches an existing item
-            if( == )
-        } else {
-            // add item
-        }
-        }
-    }
- }
