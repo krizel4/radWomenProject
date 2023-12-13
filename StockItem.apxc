@@ -111,9 +111,11 @@ public with sharing class StockItem {
         }
     }
 
-    // Checks for duplicates
-    Public class checkForDups {
-        Public static void createRecord
+
+}
+// Checks for duplicates
+ public class checkForDups {
+        public static void createRecord {
         // do I need to create variable for new item to reference later?
         Set<String> existingStock = new Set<String>
 
@@ -128,8 +130,6 @@ public with sharing class StockItem {
         } else {
             // add item
         }
-
         }
     }
-
-}
+ }
