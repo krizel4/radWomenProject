@@ -1,6 +1,7 @@
 public class DeleteStockItem {
     public static void andCreateCase(List<Stock_Item__c> deletedStock) {
-        Date deletedDate = Date.today().toStartofMonth().format();
+        Date dDate = Date.today();
+        String deletedDate = dDate.format();
 
         // Bulkify by creating an empty array to insert cases.
         List<Case> caseAlerts = new List<Case>();
