@@ -1,0 +1,12 @@
+public class LowStock {
+    public static void getLowStockItems() {
+
+        List<Stock_Item__c> lowStockItems = [SELECT Id, Item_Name__c, Item_Stock_is_Low__c, Minimum_Stock_Level__c, Stock_on_Hand__c
+                FROM Stock_Item__c WHERE Item_Stock_is_Low__c = true];
+
+        for(Stock_Item__c s : lowStockItems){
+        system.debug('The following items are low in stock: \n' +
+                    'Item: ' + s.Item_Name__c + '; Stock Quantity: ' + s.Stock_on_Hand__c);
+        }
+    }
+}
