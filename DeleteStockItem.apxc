@@ -1,6 +1,6 @@
 public class DeleteStockItem {
     public static void andCreateCase(List<Stock_Item__c> deletedStock) {
-        Date deletedDate = Date.today();
+        Date deletedDate = Date.today().toStartofMonth().format();
 
         // Bulkify by creating an empty array to insert cases.
         List<Case> caseAlerts = new List<Case>();
@@ -9,13 +9,14 @@ public class DeleteStockItem {
         for(Stock_Item__c deletedItem : deletedStock) {
             if (deletedItem.Stock_on_Hand__c != 0) {
                 Case alert = new Case(
-               	Subject = deletedItem.Item_Name__c + 'was deleted',
+               	Subject = deletedItem.Item_Name__c + ' was deleted',
                 Description = deletedItem.Name + ' was deleted on ' + deletedDate +
-                '\n' + deletedItem.Item_Name__c + 'still had' + deletedItem.Stock_on_Hand__c + 'in Stock.'
+                '\n' + deletedItem.Item_Name__c + ' still had ' + deletedItem.Stock_on_Hand__c + ' in Stock.'
                 );
             caseAlerts.add(alert);
 			}
         }
+        insert caseAlerts;
     }
 }
 
