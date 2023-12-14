@@ -8,17 +8,18 @@ public class DeleteStockItem {
         // Loop through deletions
         for(Stock_Item__c deletedItem : deletedStock) {
             if (deletedItem.Stock_on_Hand__c != 0) {
-                Case c = new Case();
-               	c.Subject = deletedItem.Item_Name__c + 'was deleted';
-                c.Description = deletedItem.Name + ' was deleted on ' + deletedDate +
-                    '\n' + deletedItem.Item_Name__c + 'still had' + deletedItem.Stock_on_Hand__c + 'in Stock.' ;
-            }
-            caseAlerts.add(caseAlerts);
+                Case alert = new Case(
+               	Subject = deletedItem.Item_Name__c + 'was deleted',
+                Description = deletedItem.Name + ' was deleted on ' + deletedDate +
+                '\n' + deletedItem.Item_Name__c + 'still had' + deletedItem.Stock_on_Hand__c + 'in Stock.'
+                );
+            caseAlerts.add(alert);
+			}
         }
     }
 }
 
-// * Loop through a SOQL query o	f stock items that hit zero
+// * Loop through a SOQL query of stock items that hit zero
 // * If stock item is NOT zero, but it's deleted,
 //     * then, Create a case, alert owner with info of the itme, ID, stock amount, and when it was deleted in the description)
 //     * add cases to list
