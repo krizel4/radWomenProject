@@ -1,20 +1,27 @@
-public class checkStockDups {
- Public static void manageDupItem (List<Stock_Item__c> stockItems) {
+public class CheckStockDups {
+ Public static void manageDupItem (List<Stock_Item__c> newStockItems) {
+	// Using set to prevent dups
+    Set<String> stockName = new Set<String>();
 
-        // empty stock item array to collect all dups to be added
-        List<Stock_Item__c> dupItems = new List<Stock_Item__c>();
+    // loop through added records and add to set
+    for(Stock_Item__c s : newStockItems) {
+    	stockName.add(s.Item_Name__c);
+    }
 
-        // Loop through the recently created/updated stock items
-        For (Stock_Item__c s : stockItems) {
-            if(s.Item_Name__c == 'test') {
-                system.debug('Dup found' + dupItems);
-            } else {
-                system.debug('no dup found');
-            }
-        }
-	}
+    // Array to IDENTIFY DUPS
+    List<Stock_Item__c> identifyDups = [Select Id, Item_Name__c FROM Stock_Item__c WHERE Item_Name__c IN: stockName];
+
+    // Loop through entire new list
+     For (Stock_Item__c newItem : newStockItems) {
+        // loop again against the Dup SOQL statement
+         for(Stock_Item__c existing : identifyDups) {
+            // compare new record against existing record
+             if (newItem.Item_Name__c == existing.Item_Name__c) {
+                 newItem.Item_Name__c = newItem.Item_Name__c + ' - Duplicate';
+             } else {
+              system.debug('no dup here');
+             }
+         }
+     }
+ }
 }
-
-    // Loop through stock items just created
-        // Query for existing stock items first? What if it's a giant db?
-        // List<Item_Name__c> existingItemNames = [SELECT Id, Item_Name__c FROM StockItem__c WHERE Item_Name__c IN : existingStock]
