@@ -1,0 +1,22 @@
+public class DeleteStockItem {
+    public static void andCreateCase(List<Stock_Item__c> deletedStock) {
+
+        // Bulkify by creating an empty array to insert cases.
+        List<Case> caseAlerts = new List<Case>();
+
+        // Loop through deletions
+        for(Stock_Item__c deletedItem : deletedStock) {
+            if (deletedItem.Stock_on_Hand__c != 0) {
+                Case c = new Case();
+
+            }
+        }
+    }
+}
+
+// * Loop through a SOQL query of stock items that hit zero
+// * If stock item is NOT zero, but it's deleted,
+//     * then, Create a case, alert owner with info of the itme, ID, stock amount, and when it was deleted in the description)
+//     * add cases to list
+// * Insert cases
+// * If stock item IS zero, delete.

@@ -8,7 +8,7 @@
 
 ## radWomenProject Reqs
 
-## Description
+### Description
 Our Professional Pantry cookware supply store needs to keep better track of our inventory (Stock).  We want a system that can track the items we stock, how many are available, and the current price.  We do not want to use Products to implement this functionality.
 
 ### Data Setup
@@ -28,6 +28,8 @@ A Trigger for the Stock Item object.  There is already a trigger in your org cal
 Put the code directly in the trigger.  There is already a section for processing BeforeInsert and BeforeDelete.
 
 Put the code in a handler class.  The trigger will need to call the methods in that handler class.  You may create a class on your own, or use the `StockItemHandler.cls` that is already set up.
+
+---
 
 ### Business Logic (in the Trigger or a Utility Class)
 
