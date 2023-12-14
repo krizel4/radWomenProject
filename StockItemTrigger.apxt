@@ -3,22 +3,13 @@ trigger StockItemTrigger on Stock_Item__c (before insert, before delete) {
     //Instantiate StockItemHandler
     //Before Insert Handling
     if(Trigger.isInsert && Trigger.isBefore) {
-        // call the class in your handler for before insert
-        // Item is committed
-        // Boolean: Check if stock name exists
-        // Yes: Change name of item with flag "Dup Item" (Or trigger error)
-        // No: Save
-        // Stop
+		checkStockDups.manageDupItem(Trigger.new);
     }
 
     //Before Delete Handling
     if(Trigger.isDelete && Trigger.isBefore) {
-        //call the class in your handler for before delete
-        // Delete Stock Item Commit
-        // Boolean: Check if stock on hand = 0
-        // Yes: Save
-        // No: Create a case
-        // Alert Owner with description that includes: ID, stock number, stock on hand at time of deletion
-        // Stop
+        DeleteStockItem.andCreateCase(Trigger.old);
     }
+
+
 }
