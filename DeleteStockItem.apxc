@@ -1,5 +1,6 @@
 public class DeleteStockItem {
     public static void andCreateCase(List<Stock_Item__c> deletedStock) {
+        Date deletedDate = Date.today();
 
         // Bulkify by creating an empty array to insert cases.
         List<Case> caseAlerts = new List<Case>();
@@ -8,13 +9,16 @@ public class DeleteStockItem {
         for(Stock_Item__c deletedItem : deletedStock) {
             if (deletedItem.Stock_on_Hand__c != 0) {
                 Case c = new Case();
-
+               	c.Subject = deletedItem.Item_Name__c + 'was deleted';
+                c.Description = deletedItem.Name + ' was deleted on ' + deletedDate +
+                    '\n' + deletedItem.Item_Name__c + 'still had' + deletedItem.Stock_on_Hand__c + 'in Stock.' ;
             }
+            caseAlerts.add(caseAlerts);
         }
     }
 }
 
-// * Loop through a SOQL query of stock items that hit zero
+// * Loop through a SOQL query o	f stock items that hit zero
 // * If stock item is NOT zero, but it's deleted,
 //     * then, Create a case, alert owner with info of the itme, ID, stock amount, and when it was deleted in the description)
 //     * add cases to list
